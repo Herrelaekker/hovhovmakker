@@ -9,8 +9,7 @@ public class LoseHealth : MonoBehaviour {
     {
         if (other.gameObject.tag == "Enemy")
         {
-            //bliver nødt til at finde objectet v
-            GetComponent<UI>().health -= 1;
+            GameObject.Find("EventSystem").GetComponent<UI>().health -= 1;
             Destroy(other.gameObject);
         }
     }
