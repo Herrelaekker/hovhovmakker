@@ -10,6 +10,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveInput;
     private Vector3 moveVelocity;
 
+    public float knockback;
+    public float knockbackLength;
+    public float knockbackCount;
+    public bool knockFromRight;
+    public bool knockFromTop;
+
     // Use this for initialization
     void Start()
     {
@@ -20,16 +26,29 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0f);
         moveVelocity = moveInput * moveSpeed;
+
+        if (knockbackCount <= 0)
+            moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0f);
+        else
+        {
+            if (knockFromRight && knockFromTop)
+                moveInput = new Vector3(-knockback, -knockback);
+            else if (!knockFromRight && knockFromTop)
+                moveInput = new Vector3(knockback, -knockback);
+            else if (knockFromRight && !knockFromTop)
+                moveInput = new Vector3(-knockback, knockback);
+            else if (!knockFromRight && !knockFromTop)
+                moveInput = new Vector3(knockback, knockback);
+
+            knockbackCount -= Time.deltaTime;
+        }
 
     }
 
     void FixedUpdate()
     {
         rb.velocity = moveVelocity;
-
     }
 
 }

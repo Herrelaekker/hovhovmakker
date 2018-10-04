@@ -43,7 +43,7 @@ public class Rotator : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy" && isRotating)
         {
-            other.GetComponent<Enemy>().health -= damage;
+
         }
     }
 }
