@@ -38,12 +38,4 @@ public class Rotator : MonoBehaviour
             isRotating = false;
         }
     }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Enemy" && isRotating)
-        {
-
-        }
-    }
 }

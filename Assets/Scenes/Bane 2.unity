@@ -550,7 +550,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000012959605104, guid: 508f479dcb5b8234892b87cec895b3ab, type: 2}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 114000013270138766, guid: 508f479dcb5b8234892b87cec895b3ab,
         type: 2}
@@ -623,6 +623,26 @@ Prefab:
         type: 2}
       propertyPath: speed
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010770456162, guid: 580227a0523269f4989efe90bbd349b0,
+        type: 2}
+      propertyPath: hit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010770456162, guid: 580227a0523269f4989efe90bbd349b0,
+        type: 2}
+      propertyPath: knockback
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010770456162, guid: 580227a0523269f4989efe90bbd349b0,
+        type: 2}
+      propertyPath: knockbackLength
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010770456162, guid: 580227a0523269f4989efe90bbd349b0,
+        type: 2}
+      propertyPath: knockFromRight
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 580227a0523269f4989efe90bbd349b0, type: 2}
