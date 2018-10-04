@@ -115,11 +115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3dca89cc472e44082ca12e773b58de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeedStart: 10
+  moveSpeedStart: 5
   moveSpeed: 0
-  knockback: 10
-  knockbackLength: 0.2
-  knockbackCount: 2
+  knockback: 1
+  knockbackLength: 0.1
+  knockbackCount: 0
   knockFromRight: 0
   knockFromTop: 0
 --- !u!114 &114000013484391606
