@@ -13,20 +13,36 @@ public class Enemy : MonoBehaviour
 
     private bool hit;
 
+    public bool bigEnemy;
+    public GameObject[] droppedEnemy;
+    public Transform spawnPos;
+    public float dir;
+
     // Update is called once per frame
     void Update()
     {
-        //Den bevæger sig nedad med en hastighed
+        //Den bevæger sig nedad med en hastighed, medmindre den er igang med at blive slet tilbage
         if (knockbackCount <= 0)
             transform.Translate(0, -speed * Time.deltaTime, 0);
         else
         {
-            transform.Translate(0, speed * knockback, 0);
+            transform.Translate(dir, speed * knockback, 0);
             knockbackCount -= Time.deltaTime;
         }
         //Hvis enemyen dør, dør den + tæller som død
         if (health <= 0)
         {
+            if (bigEnemy)
+            {
+
+                for (int i = 0; i < 3; i++)
+                {
+                    Instantiate(droppedEnemy[i],spawnPos.position , spawnPos.rotation);
+                    droppedEnemy[i].GetComponent<Enemy>().knockbackCount = droppedEnemy[i].GetComponent<Enemy>().knockbackLength;
+                    droppedEnemy[i].GetComponent<Enemy>().dir = -0.5f + (i * 0.5f);
+                }
+            }
+
             Destroy(gameObject);
             GameObject.Find("Main Camera").GetComponent<NextLevel>().enemiesKilled += 1;
         }
@@ -81,5 +97,6 @@ public class Enemy : MonoBehaviour
                 hit = false;
             }
         }
+
     }
 }
