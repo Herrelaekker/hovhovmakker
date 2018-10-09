@@ -18,23 +18,12 @@ public class Enemy : MonoBehaviour
     public Transform spawnPos;
     public float dir;
 
-    public AudioClip hitSnd;
-    public AudioClip idleSnd;
-
-    public ParticleSystem deathParticle;
-
-    void Start()
-    {
-    }
-
     // Update is called once per frame
     void Update()
     {
         //Den bevæger sig nedad med en hastighed, medmindre den er igang med at blive slet tilbage
         if (knockbackCount <= 0)
-        {
             transform.Translate(0, -speed * Time.deltaTime, 0);
-        }
         else
         {
             transform.Translate(dir, speed * knockback, 0);
@@ -43,7 +32,6 @@ public class Enemy : MonoBehaviour
         //Hvis enemyen dør, dør den + tæller som død
         if (health <= 0)
         {
-            Instantiate(deathParticle, spawnPos.position, spawnPos.rotation);
             if (bigEnemy)
             {
 
@@ -68,8 +56,6 @@ public class Enemy : MonoBehaviour
             //Hvis den roterer
             if (other.GetComponentInChildren<Rotator>().isRotating == true)
             {
-                GameObject.Find("Main Camera").GetComponent<AudioSource>().clip = hitSnd;
-                GameObject.Find("Main Camera").GetComponent<AudioSource>().Play();
                 //Så tager dette objekt skade
                 health -= other.GetComponentInChildren<Rotator>().damage;
                 hit = true;
