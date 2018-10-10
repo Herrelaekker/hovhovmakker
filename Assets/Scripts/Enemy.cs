@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
+    public int wave;
 
     public int health;
     public float speed;
@@ -33,7 +34,8 @@ public class Enemy : MonoBehaviour
         //Den bevæger sig nedad med en hastighed, medmindre den er igang med at blive slet tilbage
         if (knockbackCount <= 0)
         {
-            transform.Translate(0, -speed * Time.deltaTime, 0);
+            if (GameObject.Find("Main Camera").GetComponent<NextLevel>().currentWave == wave)
+                transform.Translate(0, -speed * Time.deltaTime, 0);
         }
         else
         {
@@ -50,6 +52,7 @@ public class Enemy : MonoBehaviour
                 for (int i = 0; i < 3; i++)
                 {
                     Instantiate(droppedEnemy[i],spawnPos.position , spawnPos.rotation);
+                    droppedEnemy[i].GetComponent<Enemy>().wave = wave;
                     droppedEnemy[i].GetComponent<Enemy>().knockbackCount = droppedEnemy[i].GetComponent<Enemy>().knockbackLength;
                     droppedEnemy[i].GetComponent<Enemy>().dir = -0.5f + (i * 0.5f);
                 }

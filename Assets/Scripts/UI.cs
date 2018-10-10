@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour {
 
+    public Text waveText;
+
     public Text healthText;
     public int health;
 
@@ -17,5 +19,6 @@ public class UI : MonoBehaviour {
 	void Update ()
     {
         healthText.text = "Health: " + health;
+        waveText.text = "Wave " + GameObject.Find("Main Camera").GetComponent<NextLevel>().currentWave;
 	}
 }
