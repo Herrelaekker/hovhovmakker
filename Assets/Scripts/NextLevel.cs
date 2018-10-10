@@ -18,10 +18,11 @@ public class NextLevel : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-        if (enemiesKilled >= enemiesToKill[currentWave - 1])
+        if (enemiesKilled >= enemiesToKill[currentWave])
         {
             currentWave += 1;
             enemiesKilled = 0;
+            GameObject.Find("EventSystem").GetComponent<UI>().waveTimer = GameObject.Find("EventSystem").GetComponent<UI>().startWaveTimer;
         }
 	}
 }

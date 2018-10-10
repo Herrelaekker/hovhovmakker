@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Rotator : MonoBehaviour
 {
@@ -43,10 +44,12 @@ public class Rotator : MonoBehaviour
         if (GameObject.Find("FuelMeter").GetComponent<BarScript>().fillAmount <= 0)
         {
             isCharging = true;
+            GameObject.Find("Content").GetComponent<Image>().color = new Color(255,0,0,255);
         }
         else if (GameObject.Find("FuelMeter").GetComponent<BarScript>().fillAmount >= 100)
         {
             isCharging = false;
+            GameObject.Find("Content").GetComponent<Image>().color = new Color(255, 255, 255, 255);
         }
     }
 }

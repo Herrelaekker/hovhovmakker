@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour {
 
     public Text waveText;
+    public Text bigWaveText;
+    public float startWaveTimer;
+    public float waveTimer;
+    
 
     public Text healthText;
     public int health;
@@ -20,5 +24,17 @@ public class UI : MonoBehaviour {
     {
         healthText.text = "Health: " + health;
         waveText.text = "Wave " + GameObject.Find("Main Camera").GetComponent<NextLevel>().currentWave;
+        bigWaveText.text = "Wave " + GameObject.Find("Main Camera").GetComponent<NextLevel>().currentWave;
+
+        if (waveTimer <= 0)
+            bigWaveText.enabled = false;
+        else
+        {
+            bigWaveText.enabled = true;
+            waveTimer -= Time.deltaTime;
+        }
+
 	}
+
+
 }
