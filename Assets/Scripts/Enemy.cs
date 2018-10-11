@@ -49,12 +49,13 @@ public class Enemy : MonoBehaviour
             if (bigEnemy)
             {
 
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < droppedEnemy.Length; i++)
                 {
                     Instantiate(droppedEnemy[i],spawnPos.position , spawnPos.rotation);
-                    droppedEnemy[i].GetComponent<Enemy>().wave = wave;
+                    droppedEnemy[i].GetComponent<Enemy>().wave = GameObject.Find("Main Camera").GetComponent<NextLevel>().currentWave;
                     droppedEnemy[i].GetComponent<Enemy>().knockbackCount = droppedEnemy[i].GetComponent<Enemy>().knockbackLength;
-                    droppedEnemy[i].GetComponent<Enemy>().dir = -0.5f + (i * 0.5f);
+                    droppedEnemy[i].GetComponent<Enemy>().dir = Mathf.Pow(-0.5f,i)*i;
+                    print(dir);
                 }
             }
 

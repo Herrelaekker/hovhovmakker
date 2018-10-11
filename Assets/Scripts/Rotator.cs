@@ -17,7 +17,7 @@ public class Rotator : MonoBehaviour
     void Update()
     {
         //når man trykker på knappen
-        if (Input.GetMouseButton(0) && !isCharging)
+        if (Input.GetButton("Fire1") && !isCharging)
         {
             //finder FuelMeterets BarScript -> Hvis Der er mere fuel end 0
             if (GameObject.Find("FuelMeter").GetComponent<BarScript>().fillAmount > 0)
