@@ -8,10 +8,10 @@ public class NextLevel : MonoBehaviour {
     public int[] enemiesToKill;
 
     public int currentWave;
+    public int finalWave;
 
 	// Use this for initialization
 	void Start () {
-
 
 	}
 	
@@ -23,6 +23,11 @@ public class NextLevel : MonoBehaviour {
             currentWave += 1;
             enemiesKilled = 0;
             GameObject.Find("EventSystem").GetComponent<UI>().waveTimer = GameObject.Find("EventSystem").GetComponent<UI>().startWaveTimer;
+
+            if (currentWave > finalWave)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
 	}
 }
