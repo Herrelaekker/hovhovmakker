@@ -58,13 +58,13 @@ public class Enemy : MonoBehaviour
                     droppedEnemy[i].GetComponent<Enemy>().wave = GameObject.Find("Main Camera").GetComponent<NextLevel>().currentWave;
                     droppedEnemy[i].GetComponent<Enemy>().knockbackCount = droppedEnemy[i].GetComponent<Enemy>().knockbackLength;
                     droppedEnemy[i].GetComponent<Enemy>().dir = Mathf.Pow(-0.5f,i)*i;
-                    droppedEnemy[i].GetComponent<Enemy>().spawned = true;
                     Instantiate(droppedEnemy[i], spawnPos.position, spawnPos.rotation);
                 }
             }
 
             Destroy(gameObject);
             GameObject.Find("Main Camera").GetComponent<NextLevel>().enemiesKilled += 1;
+            print(GameObject.Find("Main Camera").GetComponent<NextLevel>().enemiesKilled);
         }
     }
 
