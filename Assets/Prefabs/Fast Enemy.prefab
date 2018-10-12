@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1440227975953238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.280872, y: -7.7604175, z: 0}
+  m_LocalPosition: {x: -10.605771, y: 14.582919, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,6 +103,7 @@ MonoBehaviour:
   idleSnd: {fileID: 8300000, guid: 2f88f6cc4c9b9b649a39939555e9ab7d, type: 3}
   deathParticle: {fileID: 198000010654145794, guid: b064ce9425257404cbf67c4cfd270d70,
     type: 2}
+  spawned: 0
 --- !u!212 &212735599526015446
 SpriteRenderer:
   m_ObjectHideFlags: 1
