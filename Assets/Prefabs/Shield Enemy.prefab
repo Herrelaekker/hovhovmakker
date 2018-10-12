@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1198363659567648}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.58, y: 11.99, z: 0}
+  m_LocalPosition: {x: -21.062313, y: -6.9793916, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 4269602349260096}
@@ -103,16 +103,17 @@ MonoBehaviour:
   speed: 2
   knockback: 0.1
   knockbackLength: 0.1
-  knockbackCount: 0.1
+  knockbackCount: 0
   bigEnemy: 1
   droppedEnemy:
-  - {fileID: 1000013561013288, guid: 580227a0523269f4989efe90bbd349b0, type: 2}
+  - {fileID: 1369965220382860, guid: c48547c369de39c458710cc9b33ceab6, type: 2}
   spawnPos: {fileID: 4179440367138486}
   dir: 0
   hitSnd: {fileID: 8300000, guid: 259e67bedff45474d92def420550c091, type: 3}
   idleSnd: {fileID: 8300000, guid: 2f88f6cc4c9b9b649a39939555e9ab7d, type: 3}
   deathParticle: {fileID: 198000010654145794, guid: b064ce9425257404cbf67c4cfd270d70,
     type: 2}
+  spawned: 0
 --- !u!212 &212217076310147956
 SpriteRenderer:
   m_ObjectHideFlags: 1

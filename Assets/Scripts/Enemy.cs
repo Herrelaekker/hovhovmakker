@@ -24,8 +24,12 @@ public class Enemy : MonoBehaviour
 
     public ParticleSystem deathParticle;
 
+    public bool spawned;
+
     void Start()
     {
+        if (!spawned)
+        dir = 0;
     }
 
     // Update is called once per frame
@@ -51,11 +55,11 @@ public class Enemy : MonoBehaviour
 
                 for (int i = 0; i < droppedEnemy.Length; i++)
                 {
-                    Instantiate(droppedEnemy[i],spawnPos.position , spawnPos.rotation);
                     droppedEnemy[i].GetComponent<Enemy>().wave = GameObject.Find("Main Camera").GetComponent<NextLevel>().currentWave;
                     droppedEnemy[i].GetComponent<Enemy>().knockbackCount = droppedEnemy[i].GetComponent<Enemy>().knockbackLength;
                     droppedEnemy[i].GetComponent<Enemy>().dir = Mathf.Pow(-0.5f,i)*i;
-                    print(dir);
+                    droppedEnemy[i].GetComponent<Enemy>().spawned = true;
+                    Instantiate(droppedEnemy[i], spawnPos.position, spawnPos.rotation);
                 }
             }
 
