@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     public ParticleSystem deathParticle;
 
     public bool spawned;
+    public bool[] enemyType;
 
     void Start()
     {
@@ -51,7 +52,6 @@ public class Enemy : MonoBehaviour
             Instantiate(deathParticle, spawnPos.position, spawnPos.rotation);
             if (bigEnemy)
             {
-
                 for (int i = 0; i < droppedEnemy.Length; i++)
                 {
                     droppedEnemy[i].GetComponent<Enemy>().wave = GameObject.Find("Main Camera").GetComponent<NextLevel>().currentWave;
@@ -60,6 +60,13 @@ public class Enemy : MonoBehaviour
                     Instantiate(droppedEnemy[i], spawnPos.position, spawnPos.rotation);
                 }
             }
+
+            for (int i = 0; i < enemyType.Length; i++)
+                if(enemyType[i])
+                {
+                    GameObject.Find("AudioManager").SendMessage("Play",i.ToString());
+                    break;
+                }
 
             Destroy(gameObject);
             GameObject.Find("Main Camera").GetComponent<NextLevel>().enemiesKilled += 1;
@@ -79,8 +86,8 @@ public class Enemy : MonoBehaviour
                 //Så tager dette objekt skade
                 health -= other.GetComponentInChildren<Rotator>().damage;
                 hit = true;
-                GameObject.Find("Main Camera").GetComponent<AudioSource>().clip = hitSnd;
-                GameObject.Find("Main Camera").GetComponent<AudioSource>().Play();
+                //GameObject.Find("Main Camera").GetComponent<AudioSource>().clip = hitSnd;
+                //GameObject.Find("Main Camera").GetComponent<AudioSource>().Play();
             }
 
             //Hvis dette objekt stadig har liv, efter at blive skadet

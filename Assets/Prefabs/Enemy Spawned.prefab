@@ -89,21 +89,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9afc7d24678bd41b19b204c1fa0a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wave: 0
+  wave: 5
   health: 10
   speed: 2
   knockback: 0.1
   knockbackLength: 0.1
-  knockbackCount: 0
+  knockbackCount: 0.1
   bigEnemy: 0
   droppedEnemy: []
   spawnPos: {fileID: 4835105777148754}
-  dir: 0
+  dir: 0.5
   hitSnd: {fileID: 8300000, guid: 259e67bedff45474d92def420550c091, type: 3}
-  idleSnd: {fileID: 8300000, guid: 2f88f6cc4c9b9b649a39939555e9ab7d, type: 3}
   deathParticle: {fileID: 198000010654145794, guid: b064ce9425257404cbf67c4cfd270d70,
     type: 2}
   spawned: 1
+  enemyType: 010000
 --- !u!212 &212956041346128846
 SpriteRenderer:
   m_ObjectHideFlags: 1

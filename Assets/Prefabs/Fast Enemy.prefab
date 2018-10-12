@@ -100,10 +100,10 @@ MonoBehaviour:
   spawnPos: {fileID: 4137682006029602}
   dir: 0
   hitSnd: {fileID: 8300000, guid: 259e67bedff45474d92def420550c091, type: 3}
-  idleSnd: {fileID: 8300000, guid: 2f88f6cc4c9b9b649a39939555e9ab7d, type: 3}
   deathParticle: {fileID: 198000010654145794, guid: b064ce9425257404cbf67c4cfd270d70,
     type: 2}
   spawned: 0
+  enemyType: 000100
 --- !u!212 &212735599526015446
 SpriteRenderer:
   m_ObjectHideFlags: 1
