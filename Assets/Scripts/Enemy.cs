@@ -76,8 +76,7 @@ public class Enemy : MonoBehaviour
             //Hvis den roterer
             if (other.GetComponentInChildren<Rotator>().isRotating == true)
             {
-                GameObject.Find("Main Camera").GetComponent<AudioSource>().clip = hitSnd;
-                GameObject.Find("Main Camera").GetComponent<AudioSource>().Play();
+                GameObject.Find("AudioManager").SendMessage("Play","hit");
                 //Så tager dette objekt skade
                 health -= other.GetComponentInChildren<Rotator>().damage;
                 hit = true;
