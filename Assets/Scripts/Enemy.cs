@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour
     public float dir;
 
     public AudioClip hitSnd;
-    public AudioClip idleSnd;
 
     public ParticleSystem deathParticle;
 
@@ -73,13 +72,15 @@ public class Enemy : MonoBehaviour
         //Hvis spilleren rører dette objekt
         if (other.gameObject.tag == "Player")
         {
+
             //Hvis den roterer
             if (other.GetComponentInChildren<Rotator>().isRotating == true)
             {
-                GameObject.Find("AudioManager").SendMessage("Play","hit");
                 //Så tager dette objekt skade
                 health -= other.GetComponentInChildren<Rotator>().damage;
                 hit = true;
+                GameObject.Find("Main Camera").GetComponent<AudioSource>().clip = hitSnd;
+                GameObject.Find("Main Camera").GetComponent<AudioSource>().Play();
             }
 
             //Hvis dette objekt stadig har liv, efter at blive skadet

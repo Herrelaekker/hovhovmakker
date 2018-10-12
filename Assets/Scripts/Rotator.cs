@@ -27,6 +27,7 @@ public class Rotator : MonoBehaviour
                 //så bruger den fuel
                 GameObject.Find("FuelMeter").GetComponent<BarScript>().fillAmount -= fuelUse;
                 isRotating = true;
+                GameObject.Find("AudioManager").SendMessage("Play", "idle");
             }
             else
             {
